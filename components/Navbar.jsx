@@ -180,7 +180,7 @@ const Navbar = () => {
             <div style={{ backgroundColor: `${navBg}` }} className='fixed w-full h-35 z-[100]'>
                 <div className='px-2 max-w-[1200px] w-full mx-auto'>
                     <div className='flex flex-col'>
-                        <div className='flex items-center justify-between py-2'>
+                        <div className='flex items-center justify-between py-[0.5rem]'>
                             <div></div>
                             <div className='flex text-white'>
                                 <p className='mr-5 text-[#00afef]'><MdEmail className='inline text-[#00afef]'/> info@lharyhomes.com</p>
@@ -188,7 +188,7 @@ const Navbar = () => {
                             </div> 
                         </div>
                         <hr />
-                        <div className='flex justify-between items-center w-full h-full py-2'>
+                        <div className='flex justify-between items-center w-full h-full py-[0.5rem]'>
                             <Link href='/'>
                                 <Image src={logo} alt="/" width='140px' height='90px' className='cursor-pointer'/>               
                             </Link>
@@ -211,7 +211,7 @@ const Navbar = () => {
                             </div>
                         </div>
                         <hr />
-                        <div className='py-5'>
+                        <div className='py-[1rem]'>
                             <ul className='hidden lg:flex lg:flex-wrap'>
                                 <Link href='/'>
                                     <li className='text-xs uppercase hover:text-[#00afef] cursor-pointer'>

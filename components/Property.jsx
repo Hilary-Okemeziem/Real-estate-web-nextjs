@@ -11,7 +11,7 @@ import img from '../public/images/comingsoon.jpg'
 const Property = ({property: {coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID, furnishingStatus}}) => {
   return (
     <div>
-        <Link href={`/property/${externalID}`} passHref>
+        <Link href={`/PropertyDetails/${externalID}`} passHref>
             <div className='bg-white shadow-md cursor-pointer'>
                 <Image src={coverPhoto ? coverPhoto.url : img} alt='/' width={400} height={280}/>
                 <div className='px-5 py-4'>
