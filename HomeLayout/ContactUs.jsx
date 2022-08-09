@@ -14,22 +14,22 @@ const ContactUs = () => {
                     <form>
                         <div className='grid grid-cols-2 gap-4 w-full'>
                             <div>
-                                <input type="text" placeholder='Your Name (Required)' required className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'/>
+                                <input type="text" placeholder='Your Name (Required)' required className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'/>
                             </div>
                             <div>
-                                <input type="email" placeholder='Your Email (Required)' required className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'/>
+                                <input type="email" placeholder='Your Email (Required)' required className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'/>
                             </div>
                         </div>
                         <div className='grid grid-cols-2 gap-4 w-full py-8'>
                             <div>
-                                <input type="tel" placeholder='Phone Number' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'/>
+                                <input type="tel" placeholder='Phone Number' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'/>
                             </div>
                             <div>
-                                <input type="text" placeholder='Subject' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'/>
+                                <input type="text" placeholder='Subject' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'/>
                             </div>
                         </div>
                         <div>
-                            <textarea cols="30" rows="6" placeholder='Message' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'></textarea>
+                            <textarea cols="30" rows="6" placeholder='Message' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'></textarea>
                         </div>
                     </form>
                 </div>
@@ -50,22 +50,22 @@ const ContactUs = () => {
                     <form>
                         <div className='grid sm:grid-cols-2 gap-4 w-full'>
                             <div>
-                                <input type="text" placeholder='Your Name (Required)' required className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'/>
+                                <input type="text" placeholder='Your Name (Required)' required className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'/>
                             </div>
                             <div className='pt-4 sm:pt-0'>
-                                <input type="email" placeholder='Your Email (Required)' required className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'/>
+                                <input type="email" placeholder='Your Email (Required)' required className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'/>
                             </div>
                         </div>
                         <div className='grid sm:grid-cols-2 gap-4 w-full py-8'>
                             <div>
-                                <input type="tel" placeholder='Phone Number' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'/>
+                                <input type="tel" placeholder='Phone Number' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'/>
                             </div>
                             <div className='pt-4 sm:pt-0'>
-                                <input type="text" placeholder='Subject' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'/>
+                                <input type="text" placeholder='Subject' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'/>
                             </div>
                         </div>
                         <div>
-                            <textarea cols="30" rows="6" placeholder='Message' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400'></textarea>
+                            <textarea cols="30" rows="6" placeholder='Message' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'></textarea>
                         </div>
                     </form>
                 </div>
