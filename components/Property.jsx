@@ -8,7 +8,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import img from '../public/images/comingsoon.jpg'
 
-const Property = ({property: {coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID, furnishingStatus}}) => {
+const Property = ({property: {coverPhoto, price, rentFrequency, rooms, title, baths, area, isVerified, externalID, furnishingStatus}}) => {
   return (
     <div>
         <Link href={`/PropertyDetails/${externalID}`} passHref>
