@@ -24,7 +24,7 @@ const PropertyFilter = ({properties}) => {
                 Properties {router.query.purpose}
             </h3>
             <div className='grid grid-cols-2 lg:grid-cols-3 gap-8'>
-                {properties?.map((property) => <Property property={property}/>)}
+                {properties?.map((property) => <Property property={property} key={property.id}/>)}
             </div>
             {properties?.length === 0 && (
                 <div className='flex items-center justify-center py-6'>
