@@ -1,14 +1,11 @@
-import React, {Fragment, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {BsTelephoneFill} from 'react-icons/bs'
 import {MdEmail} from 'react-icons/md'
 import {ImSearch} from 'react-icons/im'
-import {HiChevronDown} from 'react-icons/hi'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import Image from 'next/image'
 import Link  from 'next/link';
 import logo from '../public/images/logo.png'
-import { Menu, Transition } from '@headlessui/react'
-
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
