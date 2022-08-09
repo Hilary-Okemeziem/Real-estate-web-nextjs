@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react'
 import CountUp from "react-countup";
+import VisibilitySensor from 'react-visibility-sensor';
 
 const CountUpSection = () => {
   return (
@@ -8,17 +9,46 @@ const CountUpSection = () => {
         <div className='bg-fixed w-full h-[70vh] bg-center bg-no-repeat bg-cover countUp-img lg:flex items-center justify-center hidden'>
             <div className='px-2 max-w-[1100px] w-full mx-auto'>
                 <div className='flex items-center justify-between text-white'>
+                    
                     <div>
-                        <CountUp end={432} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem]' />
+                        {/* <CountUp end={432} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem]' /> */}
+                        <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+                            {({ isVisible }) => (
+                                <div>
+                                    {isVisible ? <CountUp end={432} duration={4} className='text-6xl font-bold italic ml-[4.5rem]'/> : '0'}
+                                </div>
+                            )}
+                        </VisibilitySensor>
                     </div>
                     <div>
-                        <CountUp end={482} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem]'/>
+                        {/* <CountUp end={482} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem]'/> */}
+                        <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+                            {({ isVisible }) => (
+                                <div>
+                                    {isVisible ? <CountUp end={482} duration={4} className='text-6xl font-bold italic ml-[4.5rem]'/> : '0'}
+                                </div>
+                            )}
+                        </VisibilitySensor>
                     </div>
                     <div>
-                        <CountUp end={157} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[3rem]'/>
+                        {/* <CountUp end={157} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[3rem]'/> */}
+                        <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+                            {({ isVisible }) => (
+                                <div>
+                                    {isVisible ? <CountUp end={157} duration={4} className='text-6xl font-bold italic ml-[3rem]'/> : '0'}
+                                </div>
+                            )}
+                        </VisibilitySensor>
                     </div>
                     <div>
-                        <CountUp end={269} duration={4} enableScrollSpy className='text-6xl font-bold italic mr-[1rem]'/>
+                        {/* <CountUp end={269} duration={4} enableScrollSpy className='text-6xl font-bold italic mr-[1rem]'/> */}
+                        <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+                            {({ isVisible }) => (
+                                <div>
+                                    {isVisible ? <CountUp end={269} duration={4} className='text-6xl font-bold italic mr-[1rem]'/> : '0'}
+                                </div>
+                            )}
+                        </VisibilitySensor>
                     </div>
                 </div>
                 <div className='flex items-center justify-between text-white py-4'>

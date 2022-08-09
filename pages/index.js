@@ -20,8 +20,8 @@ export default function Home({propertiesForSale, propertiesForRent}) {
       </Head>
 
       <Hero/>
-      <div className='bg-[#f5f5f5]'>
-        <div className='px-2 max-w-[1110px] w-full mx-auto'>
+      <div className='bg-[#f5f5f5] w-full py-16'>
+        <div className='px-2 max-w-[1110px] mx-auto'>
           <div className=' pt-6'>
             <div className='flex cursor-pointer bg-gray-100 border border-gray-200 p-2 text-xl rounded-md justify-center items-center font-bold'>
                 <Link href='/PropertyFilter'>Search Property By Category</Link> <BsArrowRight className='inline ml-2'/>
