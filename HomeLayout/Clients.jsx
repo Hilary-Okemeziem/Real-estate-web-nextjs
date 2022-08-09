@@ -20,13 +20,13 @@ import Union_Bank from '../public/images/Union-Bank.png'
 
 const Clients = () => {
   return (
-        <div className='w-full py-16'>
+        <div className='w-full py-16 hidden md:block'>
             <div className='flex items-center justify-center pb-8'>
                 <h1 className='text-2xl sm:text-3xl tracking-widest font-bold uppercase heading'>Cooperate Clients</h1>
             </div>
 
             <Marquee pauseOnHover speed={45} gradient={false} className='scrollbar-hide'>
-                <div className='flex items-center justify-center gap-16 lg:gap-20'>
+                <div className='flex items-center justify-center gap-20'>
                     <div>
                         <Image src={ABinBev} alt="/" width={120} height={120} className='lg:hover:scale-110 ease-in duration-200'/>
                     </div>
