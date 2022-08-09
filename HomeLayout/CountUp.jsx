@@ -74,7 +74,7 @@ const CountUpSection = () => {
 
         <div className='relative lg:hidden'>
             <div className='absolute w-full h-full bg-black/25'></div>
-            <div className='relative w-full h-[80vh]'>
+            <div className='relative w-full h-[90vh]'>
                 <Image src='https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' layout="fill" objectFit="cover" alt="/" />
             </div>
 

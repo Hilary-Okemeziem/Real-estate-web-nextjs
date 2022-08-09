@@ -31,13 +31,16 @@ const ContactUs = () => {
                         <div>
                             <textarea cols="30" rows="6" placeholder='Message' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'></textarea>
                         </div>
+                        <div className='flex items-end justify-end pt-2'>
+                            <button className='bg-transparent py-2 px-4 rounded-lg border border-[#00afef] text-white bg-[#00afef]'>Send Quote</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
 
         <div className='relative lg:hidden'>
-            <div className='relative w-full h-[100vh]'>
+            <div className='relative w-full h-[115vh]'>
                 <Image src={contact} layout="fill" objectFit="cover" alt="/" />
             </div>
 
@@ -66,6 +69,9 @@ const ContactUs = () => {
                         </div>
                         <div>
                             <textarea cols="30" rows="6" placeholder='Message' className='bg-transparent py-2 px-4 rounded-sm w-full border border-gray-400 text-white'></textarea>
+                        </div>
+                        <div className='pt-4'>
+                            <button className='bg-transparent py-2 px-4 rounded-md w-full bg-[#00afef] text-white'>Send Quote</button>
                         </div>
                     </form>
                 </div>
