@@ -11,41 +11,53 @@ const CountUpSection = () => {
                 <div className='flex items-center justify-between text-white'>
                     
                     <div>
-                        {/* <CountUp end={432} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem]' /> */}
                         <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
                             {({ isVisible }) => (
                                 <div>
-                                    {isVisible ? <CountUp end={432} duration={4} className='text-6xl font-bold italic ml-[4.5rem]'/> : '0'}
+                                    {isVisible ? 
+                                        <CountUp end={432} duration={4} className='text-6xl font-bold italic ml-[4.5rem]'/> 
+                                        : 
+                                        (<div  className='text-6xl font-bold italic ml-[4.5rem]'>0</div>)
+                                    }
                                 </div>
                             )}
                         </VisibilitySensor>
                     </div>
                     <div>
-                        {/* <CountUp end={482} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem]'/> */}
                         <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
                             {({ isVisible }) => (
                                 <div>
-                                    {isVisible ? <CountUp end={482} duration={4} className='text-6xl font-bold italic ml-[4.5rem]'/> : '0'}
+                                    {isVisible ? 
+                                        <CountUp end={482} duration={4} className='text-6xl font-bold italic ml-[4.5rem]'/> 
+                                        :
+                                        (<div  className='text-6xl font-bold italic ml-[4.5rem]'>0</div>)
+                                    }
                                 </div>
                             )}
                         </VisibilitySensor>
                     </div>
                     <div>
-                        {/* <CountUp end={157} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[3rem]'/> */}
                         <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
                             {({ isVisible }) => (
                                 <div>
-                                    {isVisible ? <CountUp end={157} duration={4} className='text-6xl font-bold italic ml-[3rem]'/> : '0'}
+                                    {isVisible ? 
+                                        <CountUp end={157} duration={4} className='text-6xl font-bold italic ml-[3rem]'/> 
+                                        : 
+                                        (<div  className='text-6xl font-bold italic ml-[4.5rem]'>0</div>)
+                                    }
                                 </div>
                             )}
                         </VisibilitySensor>
                     </div>
                     <div>
-                        {/* <CountUp end={269} duration={4} enableScrollSpy className='text-6xl font-bold italic mr-[1rem]'/> */}
                         <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
                             {({ isVisible }) => (
                                 <div>
-                                    {isVisible ? <CountUp end={269} duration={4} className='text-6xl font-bold italic mr-[1rem]'/> : '0'}
+                                    {isVisible ? 
+                                        <CountUp end={269} duration={4} className='text-6xl font-bold italic mr-[1rem]'/> 
+                                        : 
+                                        (<div  className='text-6xl font-bold italic ml-[4.5rem]'>0</div>)
+                                    }
                                 </div>
                             )}
                         </VisibilitySensor>
@@ -68,19 +80,59 @@ const CountUpSection = () => {
 
             <div className='grid sm:grid-cols-2 mx-auto p-2 absolute top-0 left-0 w-full h-full items-center justify-center text-white'>
                 <div>
-                    <CountUp end={432} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'/>
+                    <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+                        {({ isVisible }) => (
+                            <div>
+                                {isVisible ? 
+                                    <CountUp end={432} duration={4} className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'/> 
+                                    : 
+                                    (<div  className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'>0</div>)
+                                }
+                            </div>
+                        )}
+                    </VisibilitySensor>
                     <div className='uppercase font-bold text-xl py-3 text-center'>Properties for sale</div>
                 </div>
                 <div>
-                    <CountUp end={482} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'/>
+                    <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+                        {({ isVisible }) => (
+                            <div>
+                                {isVisible ? 
+                                    <CountUp end={482} duration={4} className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'/> 
+                                    : 
+                                    (<div  className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'>0</div>)
+                                }
+                            </div>
+                        )}
+                    </VisibilitySensor>
                     <div className='uppercase font-bold text-xl py-3 text-center'>Properties for Rent</div>
                 </div>
                 <div>
-                    <CountUp end={157} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'/>
+                    <VisibilitySensor>
+                        {({ isVisible }) => (
+                            <div>
+                                {isVisible ? 
+                                    <CountUp end={157} duration={4} className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'/> 
+                                    : 
+                                    (<div  className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'>0</div>)
+                                }
+                            </div>
+                        )}
+                    </VisibilitySensor>
                     <div className='uppercase font-bold text-xl py-3 text-center'>Vacation Rentals</div>
                 </div>
                 <div>
-                    <CountUp end={269} duration={4} enableScrollSpy className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'/>
+                    <VisibilitySensor>
+                        {({ isVisible }) => (
+                            <div>
+                                {isVisible ? 
+                                    <CountUp end={269} duration={4} className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'/> 
+                                    : 
+                                    (<div  className='text-6xl font-bold italic ml-[4.5rem] sm:ml-[7rem] md:ml-[9rem]'>0</div>)
+                                }
+                            </div>
+                        )}
+                    </VisibilitySensor>
                     <div className='uppercase font-bold text-xl py-3 text-center'>Landlords</div>
                 </div>     
             </div>    
