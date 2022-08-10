@@ -27,7 +27,7 @@ const Login = () => {
         setError('')
         try {
             await logIn(email, password);
-            router.push('/')
+            router.push('/PropertyFilter')
         } catch (error) {
             setError(error.message)
             console.log(error)
