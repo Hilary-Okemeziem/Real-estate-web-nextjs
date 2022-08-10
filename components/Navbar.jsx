@@ -1,15 +1,21 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, Fragment, useState} from 'react'
 import {BsTelephoneFill} from 'react-icons/bs'
 import {MdEmail} from 'react-icons/md'
 import {ImSearch} from 'react-icons/im'
+import { FaUserAlt, FaUserCheck} from 'react-icons/fa'
+import {HiChevronDown} from 'react-icons/hi'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import Image from 'next/image'
 import Link  from 'next/link';
 import logo from '../public/images/logo.png'
+import { Menu, Transition } from '@headlessui/react'
+import { UserAuth } from '../context/AuthContext'
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [navBg, setNavBg] = useState(false);
+  const { user } = UserAuth();
+
 
   const handleNav = () => {
     setNav(!nav);
@@ -39,46 +45,81 @@ const Navbar = () => {
             
                     <div>
                         <ul className='hidden lg:flex lg:flex-wrap'>
-                            <Link href='/'>
-                                <li className='text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                    Home <span className='ml-2'>|</span>
-                                </li>
-                            </Link>
                             <Link href='/PropertyFilter' passHref>
-                                <li className='ml-4 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                    Search <span className='ml-2'>|</span>
+                                <li className='mr-8 text-sm uppercase hover:text-[#00afef] cursor-pointer'>
+                                    Search By Category
                                 </li>
                             </Link>
-                            <Link href='/PropertyFilter?purpose=For-Sale' passHref>
-                                <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                    For Sale <span className='ml-2'>|</span>
-                                </li>
-                            </Link>
-                            <Link href='/PropertyFilter?purpose=For-Rent' passHref>
-                                <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                    For Rent<span className='ml-2'>|</span>
-                                </li>
-                            </Link>
-                            <Link href='/'>
-                                <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                    Agents <span className='ml-2'>|</span>
-                                </li>
-                            </Link>
-                            <Link href='/'>
-                                <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                    Features<span className='ml-2'>|</span>
-                                </li>
-                            </Link>
-                            <Link href='/'>
-                                <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                    Property Inquiry(CRM) <span className='ml-2'>|</span>
-                                </li>
-                            </Link>
-                            <Link href='/'>
-                                <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                    Open houses
-                                </li>
-                            </Link>
+                            <div>
+                                <Menu as='div' className='relative text-left ml-1'>
+                                    <div className='flex'>
+                                        <Menu.Button>
+                                            <p className='text-sm uppercase mr-8 hover:text-[#00afef]'>properties <HiChevronDown size={20} className='inline ml-2' /></p>
+                                        </Menu.Button>
+                                    </div>
+
+                                    <Transition
+                                        as={Fragment}
+                                        enter='transition ease-out duration-100'
+                                        enterFrom='transform opacity-0 scale-95'
+                                        enterTo='transform opacity-100 scale-100'
+                                        leave='transition ease-in duration-75'
+                                        leaveFrom='transform opacity-100 scale-100'
+                                        leaveTo='transform opacity-0 scale-95'
+                                    >
+                                        <Menu.Items className='origin-top-right absolute right-[-2rem] mt-4 w-56 divide-y divide-gray-100 rounded-md bg-[#F5F5F5] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+                                            <div className='py-1'>
+                                                <Menu.Item>
+                                                    {({ active }) => (
+                                                    <div className='block px-4 py-2 text-primary border-b text-center hover:text-[#00afef]'>
+                                                        <Link
+                                                            href='/PropertyFilter?purpose=For-Sale' passHref
+                                                            className={(
+                                                            active
+                                                                ? 'bg-gray-500 text-gray-100'
+                                                                : 'text-gray-200'
+                                                            )}
+                                                        >
+                                                            For Sale
+                                                        </Link>
+                                                    </div>
+                                                    )}
+                                                </Menu.Item>
+
+                                                <Menu.Item>
+                                                    {({ active }) => (
+                                                    <div className='block px-4 py-2 text-primary text-center cursor-pointer hover:text-[#00afef]'>
+                                                        <Link 
+                                                            href='/PropertyFilter?purpose=For-Rent' passHref
+                                                            className={(
+                                                            active
+                                                                ? 'bg-gray-500 text-gray-100'
+                                                                : 'text-gray-200'
+                                                            )}
+                                                        >
+                                                            For Rent      
+                                                        </Link>
+                                                    </div>
+                                                    )}
+                                                </Menu.Item>
+                                            </div>
+                                        </Menu.Items>
+                                    </Transition>
+                                </Menu>
+                            </div>
+                            {user?.email ? (
+                                <Link href='/Account' passHref>
+                                    <li className='ml-2 text-sm uppercase hover:text-[#00afef] cursor-pointer'>
+                                        <FaUserCheck className='inline mr-2 mb-1' size={20}/> Account
+                                    </li>
+                                </Link>
+                            ) : (
+                                <Link href='/Login' passHref>
+                                    <li className='ml-2 text-sm uppercase hover:text-[#00afef] cursor-pointer'>
+                                        <FaUserAlt className='inline mr-2 mb-1' size={18}/> Login / Sign In
+                                    </li>
+                                </Link>
+                            )}
                         </ul>
 
                         {/* Hamburger Icon */}
@@ -124,12 +165,24 @@ const Navbar = () => {
 
                         <div className='py-2 flex flex-col'>
                             <ul className='uppercase'>
+                                {user?.email ? (
+                                    <Link href='/Account'>
+                                        <li className='py-4 text-sm' onClick={() => setNav(false)}>
+                                            <FaUserCheck className='inline mr-2 mb-1'/> Account
+                                        </li>
+                                    </Link>
+                                ) : (
+                                    <Link href='/Login'>
+                                        <li className='py-4 text-sm' onClick={() => setNav(false)}>
+                                            <FaUserAlt className='inline mr-2 mb-1'/> Login / Sign In
+                                        </li>
+                                    </Link>
+                                )}
                                 <Link href='/' >
                                     <li className='py-4 text-sm' onClick={() => setNav(false)}>    
                                         Home
                                     </li>
                                 </Link>
-
                                 <Link href='/PropertyFilter' passHref>
                                     <li className='py-4 text-sm' onClick={() => setNav(false)}>    
                                         Search
@@ -148,21 +201,9 @@ const Navbar = () => {
                                     </li>
                                 </Link>
 
-                                <Link href='/' >
+                                <Link href='#' >
                                     <li className='py-4 text-sm ' onClick={() => setNav(false)}>    
                                         Agents
-                                    </li>
-                                </Link>
-
-                                <Link href='/'>
-                                    <li className='py-4 text-sm' onClick={() => setNav(false)}>    
-                                        Features
-                                    </li>
-                                </Link>
-
-                                <Link href='/'>
-                                    <li className='py-4 text-sm' onClick={() => setNav(false)}>    
-                                        Property Inquiry(CRM)
                                     </li>
                                 </Link>        
                             </ul>
@@ -178,10 +219,18 @@ const Navbar = () => {
                 <div className='px-2 max-w-[1200px] w-full mx-auto'>
                     <div className='flex flex-col'>
                         <div className='flex items-center justify-between py-[0.5rem]'>
-                            <div></div>
+                            {user?.email ? (
+                                <div className='text-[#00afef]'>
+                                    <FaUserCheck className='inline text-[#00afef] mr-2' size={20}/><Link href='/Account' passHref>Account</Link>
+                                </div>
+                            ) : (
+                                <div className='text-[#00afef]'>
+                                    <FaUserAlt className='inline text-[#00afef] mr-2' size={20}/><Link href='/Login' passHref>Login / Sign In</Link>
+                                </div>
+                            )}
                             <div className='flex text-white'>
                                 <p className='mr-5 text-[#00afef]'><MdEmail className='inline text-[#00afef]'/> info@lharyhomes.com</p>
-                                <p className='text-[#00afef]'><BsTelephoneFill className='inline text-[#00afef]'/> +234 806 517 2602</p>
+                                <p className='lg:inline text-[#00afef] hidden'><BsTelephoneFill className='inline text-[#00afef]'/> +234 806 517 2602</p>
                             </div> 
                         </div>
                         <hr />
@@ -202,7 +251,7 @@ const Navbar = () => {
                             {/* Hamburger Icon */}
                             <div
                                 onClick={handleNav}
-                                className='lg:hidden z-10 md:text-white'
+                                className='md:hidden z-10 text-white'
                             >
                                 <AiOutlineMenu size={25} />
                             </div>
@@ -212,42 +261,27 @@ const Navbar = () => {
                             <ul className='hidden lg:flex lg:flex-wrap'>
                                 <Link href='/'>
                                     <li className='text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                        Home <span className='ml-2'>|</span>
+                                        Home <span className='ml-8'>|</span>
                                     </li>
                                 </Link>
                                 <Link href='/PropertyFilter' passHref>
-                                    <li className='ml-4 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                        Search <span className='ml-2'>|</span>
+                                    <li className='ml-8 text-sm uppercase hover:text-[#00afef] cursor-pointer'>
+                                        Search <span className='ml-8'>|</span>
                                     </li>
                                 </Link>
                                 <Link href='/PropertyFilter?purpose=For-Sale' passHref>
-                                    <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                        For Sale <span className='ml-2'>|</span>
+                                    <li className='ml-8 text-sm uppercase hover:text-[#00afef] cursor-pointer'>
+                                        For Sale <span className='ml-8'>|</span>
                                     </li>
                                 </Link>
                                 <Link href='/PropertyFilter?purpose=For-Rent' passHref>
-                                    <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                        For Rent<span className='ml-2'>|</span>
+                                    <li className='ml-8 text-sm uppercase hover:text-[#00afef] cursor-pointer'>
+                                        For Rent<span className='ml-8'>|</span>
                                     </li>
                                 </Link>
-                                <Link href='/'>
-                                    <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                        Agents <span className='ml-2'>|</span>
-                                    </li>
-                                </Link>
-                                <Link href='/'>
-                                    <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                        Features<span className='ml-2'>|</span>
-                                    </li>
-                                </Link>
-                                <Link href='/'>
-                                    <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                        Property Inquiry(CRM) <span className='ml-2'>|</span>
-                                    </li>
-                                </Link>
-                                <Link href='/'>
-                                    <li className='ml-2 text-xs uppercase hover:text-[#00afef] cursor-pointer'>
-                                        Open houses
+                                <Link href='#'>
+                                    <li className='ml-8 text-sm uppercase hover:text-[#00afef] cursor-pointer'>
+                                        Agents
                                     </li>
                                 </Link>
                             </ul>
@@ -286,12 +320,24 @@ const Navbar = () => {
 
                                 <div className='py-2 flex flex-col'>
                                     <ul className='uppercase'>
+                                        {user?.email ? (
+                                            <Link href='/Account'>
+                                                <li className='py-4 text-sm' onClick={() => setNav(false)}>
+                                                    <FaUserCheck className='inline mr-2 mb-1'/> Account
+                                                </li>
+                                            </Link>
+                                        ) : (
+                                            <Link href='/Login'>
+                                                <li className='py-4 text-sm' onClick={() => setNav(false)}>
+                                                    <FaUserAlt className='inline mr-2 mb-1'/> Login / Sign In
+                                                </li>
+                                            </Link>
+                                        )}
                                         <Link href='/' >
                                             <li className='py-4 text-sm' onClick={() => setNav(false)}>    
                                                 Home
                                             </li>
                                         </Link>
-
                                         <Link href='/PropertyFilter' passHref>
                                             <li className='py-4 text-sm' onClick={() => setNav(false)}>    
                                                 Search
@@ -310,21 +356,9 @@ const Navbar = () => {
                                             </li>
                                         </Link>
 
-                                        <Link href='/' >
+                                        <Link href='#' >
                                             <li className='py-4 text-sm ' onClick={() => setNav(false)}>    
                                                 Agents
-                                            </li>
-                                        </Link>
-
-                                        <Link href='/'>
-                                            <li className='py-4 text-sm' onClick={() => setNav(false)}>    
-                                                Features
-                                            </li>
-                                        </Link>
-
-                                        <Link href='/'>
-                                            <li className='py-4 text-sm' onClick={() => setNav(false)}>    
-                                                Property Inquiry(CRM)
                                             </li>
                                         </Link>        
                                     </ul>

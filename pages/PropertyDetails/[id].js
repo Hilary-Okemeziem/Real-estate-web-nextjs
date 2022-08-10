@@ -27,7 +27,7 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
                 }
 
                 <div>
-                    <div className='text-[#00afef] font-bold text-xl'>{purpose.toUpperCase()}</div>
+                    <div className='text-[#00afef] font-bold text-xl'>{purpose?.toUpperCase()}</div>
                     <div className='py-2 font-bold text-3xl'>
                         {title}
                     </div>
@@ -49,7 +49,7 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
                     <hr />
                     <div className='flex items-center pt-2 gap-2'>
                         <div className='text-[#00afef] text-xl'>{isVerified && <GoVerified />}</div>
-                        <div className='text-[#00afef] text-2xl font-bold'>NGN {price.toLocaleString()}{rentFrequency && `/${rentFrequency}`}</div>
+                        <div className='text-[#00afef] text-2xl font-bold'>NGN {price?.toLocaleString()}{rentFrequency && `/${rentFrequency}`}</div>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
                 </div>
 
                 <div className='pb-16'>
-                    {amenities.length && 
+                    {amenities?.length && 
                     <h3 className='text-2xl my-5 font-bold'>Trademark:</h3>}
                     <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
                         {amenities?.map((amenity) => (
