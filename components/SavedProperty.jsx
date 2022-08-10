@@ -36,7 +36,7 @@ const SavedProperty = () => {
   return (
     <div>
         {properties?.length === 0 ? (
-            <p className='text-lg'>You don't have any coins saved. Please save a coin to add it to your watch list. <Link href='/PropertyFilter'><span className='text-[#00afef] cursor-pointer'>Click here to search properties.</span></Link></p>
+            <p className='text-lg'>You don&apos;t have any property saved. Please save a property to add it to your saved items. <Link href='/PropertyFilter'><span className='text-[#00afef] cursor-pointer'>Click here to search properties.</span></Link></p>
         ) : (
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {properties?.map((property) => (
